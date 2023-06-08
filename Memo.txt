@@ -1,0 +1,21 @@
+Note importante github 
+- la fonction : "git checkout 7921a1e index.html" demande a ce qu'on revienne a lm'etat du fichier index.html corresppondant a l'id du commit passer en paramètre 
+- la fonction git revert prend aussi en parmètre l'id du commit Exemple : git revert 7921a1e
+- cette fonction nous renvoie a l'etat du project correspondant a l'id du commit. Exemple si j'ai créer un fichier html et que j'ai commité ensuité pushé et que après j'ai vue ce fichier peut etre modifié, ce que je fait c'est que j'utilise le revert ca renvoie mon project a  l'etat ou il y'avait pas ce fichier html je dois aussi commiter cette modif (je dois bien sur avoir l'id du commit) je peux maintenant crée mon nouveau fichier html. si les modif ne sont pas ok je peux revenir a mon ancien fichier en faisant un revert sur le commit de modif du project. 
+- le git revert 7921a1e index.html permet d'annuler les modif qui on été apporté au fichier index.html a ce commit  
+- le reset permet de revenir en arrière et a un commit bien précis 
+- le git reset 7921a1e : ne supprime pas les modif apporter au code les laisse ne stanbide , mais supprime le commit. la on peut reffaire le add et le commit pour garder notre code 
+- git reset HEAD^ (associé au --mix) le nombre de chapeau sur le head signifie le nombre de retour en arrière sur le code. il est a noté qu'il laisse tout les modification qui on été fait en arrière et les stage pas (c'est avec le soft que ca stage), (Lorsque vous exécutez git reset HEAD^ --mixed, cela annule le dernier commit en le retirant de l'historique des commits. Cependant, contrairement à git reset --hard, les modifications qui ont été effectuées dans le dernier commit ne sont pas supprimées de votre répertoire de travail. Les modifications annulées par git reset HEAD^ --mixed sont laissées en "unstaged" dans votre zone de staging.
+
+Cela signifie que les modifications du dernier commit sont conservées dans vos fichiers locaux, mais elles ne sont plus considérées comme étant prêtes pour un nouveau commit. Vous pouvez alors réexaminer les modifications, apporter des ajustements si nécessaire et les réindexer (ajouter à la zone de staging) en utilisant git add avant de faire un nouveau commit.
+
+En résumé, git reset HEAD^ --mixed annule le dernier commit tout en laissant les modifications dans votre répertoire de travail et en les plaçant en "unstaged" dans la zone de staging, vous permettant de les réexaminer avant de faire un nouveau commit.)
+
+- le git reset HEAD^ --hard se charge de revinir en arrière et de supprimer tout les modification effectué. donc si j'ai mon fichier html vide et que je commit, si je viens l modifié et que j'ajoute bonjour et que je lance cette fonction, bonjour disparait 
+
+- le git reset 7921a1e  supprimer tout les commit qui sont après le commit passer en paramètre mais garder nos fichier (html css ... ) intact. la on pourra faire un nouveau commit pour garder nos fichier.
+
+- le git reset 7921a1e --hard va supprimer tout les commit qui sont après le commit passer en paramètre et modifier nos fichier(html, css..) pour qu'il reviene comme il etais a ce commit.
+
+- cas de figure j'ai une version A de mon project on ma donné  deux heure de pour pour la faire passé a la version A1.1. on  mze dis aussi que si je n'y arrive pas dans les delai je vais devoir livrér la version A au client et après continuer la modif poour arriver a la version A1.1. ici la solutoin git c'est utilisé le git stach le git stash revient a la version A de mon project et sauvegarde les modif apporter en cache ce qui fait que lorsque je vais vouloir continuer a modifié je vias faire juste un git stash apply. ( avec le pop avant le stash on peux un fois vider le cash)
+- git stash drop supprime le dernier element qui a été stocké en cache  
